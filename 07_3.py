@@ -3,7 +3,7 @@ import statistics
 
 MIN_LIMIT = -50
 MAX_LIMIT = 50
-m = randint(1, 6)
+m = randint(1, 7)
 SIZE = 2 * m + 1
 
 # Массив размером 2m + 1, где m – натуральное число, заполнен случайным образом
@@ -16,7 +16,6 @@ SIZE = 2 * m + 1
 
 
 def median(array, mid):
-
     if len(array) == 1 and mid == 0:
         return array[0]
 
@@ -39,7 +38,7 @@ def median2(array):
     lt = [x for x in array if x < pivot]
     gt = [x for x in array if x > pivot]
 
-    if len(lt) != len(gt) and len(eq) % 2 != 0:
+    if len(lt) != len(gt) and abs(len(lt) - len(gt)) > len(eq):
         return median2(lt + eq + gt)
 
     return pivot
